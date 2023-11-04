@@ -71,3 +71,4 @@ const start = () =>
     server.listen(PORT, () => `Server running on port ${PORT}...`);
 
 start();
+export default app;
