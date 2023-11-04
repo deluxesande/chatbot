@@ -1,3 +1,25 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
+    "name": "chatbot",
+    "version": 2,
+    "public": true,
+    "builds": [
+        {
+            "src": "server.js",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "public/**",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/((?!.*\\.\\w+$).*)",
+            "dest": "/server.js"
+        },
+        {
+            "src": "/(.+\\.[a-z]+)$",
+            "dest": "/public/$1"
+        }
+    ]
 }
